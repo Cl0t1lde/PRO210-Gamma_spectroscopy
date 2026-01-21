@@ -31,7 +31,7 @@ All generated plots are saved in the `plots_2` folder for easy review.
 - **`script_peak_analysis_2.py`** – Same as above, but automatically saves all plots in `plots_2`.  
 - **`gamma_data.csv`** – Gamma spectroscopy data (channels and counts).  
 
-  ### File Naming Convention
+  #### File Naming Convention
 
   All data files follow this pattern:  
 
@@ -42,7 +42,7 @@ All generated plots are saved in the `plots_2` folder for easy review.
     - `<AcquisitionTime>` – Duration of the spectroscopy measurement in seconds
     - `<Date>` – Date of the data acquisition (format: day-month-year)
 
-  **Example:**  
+  ***Example:***  
         PHA PreAmp Vase Uranium 3638sec; 14-1-2026.csv
 
 - **`.DS_Store`** – macOS system file; safe to ignore.  
