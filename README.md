@@ -12,16 +12,16 @@ All generated plots are saved in the `plots_2` folder for easy review.
 
 ## Folder Structure
 
-/<folder>
-│
-├─ plots_2/ # Saved plots organized by sample
-│ ├─ Overview/ # Full spectrum overview plots
-│ └─ <SampleName>/ # Linear, log, and peak plots for each sample
-│
-├─ gamma_data.csv # Example gamma spectroscopy data
-├─ script_peak_analysis_1.py # Original analysis script (interactive plots)
-├─ script_peak_analysis_2.py # Improved script with saved plots
-├─ .DS_Store # macOS system file (can be ignored)
+        /<folder>
+        │
+        ├─ plots_2/ # Saved plots organized by sample
+        │ ├─ Overview/ # Full spectrum overview plots
+        │ └─ <SampleName>/ # Linear, log, and peak plots for each sample
+        │
+        ├─ gamma_data.csv # Example gamma spectroscopy data
+        ├─ script_peak_analysis_1.py # Original analysis script (interactive plots)
+        ├─ script_peak_analysis_2.py # Improved script with saved plots
+        ├─ .DS_Store # macOS system file (can be ignored)
 
 ---
 
@@ -31,18 +31,18 @@ All generated plots are saved in the `plots_2` folder for easy review.
 - **`script_peak_analysis_2.py`** – Same as above, but automatically saves all plots in `plots_2`.  
 - **`gamma_data.csv`** – Gamma spectroscopy data (channels and counts).  
 
-        ## File Naming Convention
+  ### File Naming Convention
 
-        All data files follow this pattern:  
+  All data files follow this pattern:  
 
-        **`PHA PreAmp <SampleName> <AcquisitionTime>sec; <Date>.csv`**  
+  **`PHA PreAmp <SampleName> <AcquisitionTime>sec; <Date>.csv`**  
 
-        Where:  
-        - `<SampleName>` – Name of the sample (e.g., Uranium, Banana, Potassium)  
-        - `<AcquisitionTime>` – Duration of the spectroscopy measurement in seconds  
-        - `<Date>` – Date of the data acquisition (format: day-month-year)
+  Where:
+    - `<SampleName>` – Name of the sample (e.g., Uranium, Banana, Potassium)  
+    - `<AcquisitionTime>` – Duration of the spectroscopy measurement in seconds
+    - `<Date>` – Date of the data acquisition (format: day-month-year)
 
-        **Example:**  
+  **Example:**  
         PHA PreAmp Vase Uranium 3638sec; 14-1-2026.csv
 
 - **`.DS_Store`** – macOS system file; safe to ignore.  
