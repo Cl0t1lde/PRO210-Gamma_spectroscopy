@@ -15,7 +15,7 @@ All generated plots are saved in the `plots_2` folder for easy review.
         /<folder>
         │
         ├─ plots_2/ # Saved plots organized by sample
-        │ ├─ Overview/ # Full spectrum overview plots
+        │ ├─ Overview/ # Background plots
         │ └─ <SampleName>/ # Linear, log, and peak plots for each sample
         │
         ├─ gamma_data.csv # Example gamma spectroscopy data
