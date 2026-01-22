@@ -13,7 +13,7 @@ Two scripts are provided:
 - Runs the analysis and saves all plots in the folder `plots_2`
 - Does **not** print numerical results
 
-### `gamma_curve_fit.py`
+### `1.gamma_curve_fit.py`
 - Runs the analysis and prints numerical results
 - Displays plots interactively
 
@@ -113,7 +113,7 @@ Usage
 1. Ensure the data file(s) are in the same folder as the scripts.
 2. Run the script with Python 3.x:
     ```bash
-       python script_peak_analysis_2.py
+       python 1.gamma_curve_fit.py
    
 - `.DS_Store` is a macOS system file.
 - It does not affect the analysis and can be ignored or deleted.
