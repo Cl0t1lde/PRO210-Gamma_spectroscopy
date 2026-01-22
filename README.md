@@ -1,65 +1,73 @@
-# Gamma Spectroscopy Analysis
+Gamma Spectrum Analysis-README
 
-## Overview
-This project analyzes gamma spectroscopy data. It can:  
-- Plot full gamma spectra  
-- Subtract background spectra  
-- Identify and quantify peaks using Gaussian fits  
+This project analyses gamma-ray spectra using a NaI(Tl) scintillator connected to PASCO UCS-30 universal computer spectrometer. The analysis includes background subtraction, peak identification, Gaussian fitting, and basic statistical tests to characterise gamma-ray peaks.
 
-All generated plots are saved in the `plots_2` folder for easy review.
 
----
+Two scripts are provided:
 
-## Folder Structure
+Final_plot_saver.py runs the analysis and saves the plots in the folder ''plots_2'' without orinting the results.
 
-        /<folder>
-        │
-        ├─ plots_2/ # Saved plots organized by sample
-        │ ├─ Overview/ # Background plots
-        │ └─ <SampleName>/ # Linear, log, and peak plots for each sample
-        │
-        ├─ gamma_data.csv # Example gamma spectroscopy data
-        ├─ script_peak_analysis_1.py # Original analysis script (interactive plots)
-        ├─ script_peak_analysis_2.py # Improved script with saved plots
-        ├─ .DS_Store # macOS system file (can be ignored)
+gamma_curve_fit.py runs the analysis and prints numerical results while also showing plots interactively.
 
----
 
-## Files
 
-- **`script_peak_analysis_1.py`** – Loads spectra, plots them, subtracts background, and fits Gaussian peaks. Plots are shown interactively.  
-- **`script_peak_analysis_2.py`** – Same as above, but automatically saves all plots in `plots_2`.  
-- **`gamma_data.csv`** – Gamma spectroscopy data (channels and counts).  
 
-  #### File Naming Convention
+Input data (CSV files)
 
-  All data files follow this pattern:  
 
-  **`PHA PreAmp <SampleName> <AcquisitionTime>sec; <Date>.csv`**  
 
-  Where:
-    - `<SampleName>` – Name of the sample (e.g., Uranium, Banana, Potassium)  
-    - `<AcquisitionTime>` – Duration of the spectroscopy measurement in seconds
-    - `<Date>` – Date of the data acquisition (format: day-month-year)
+CSV files follow the pattern:
+```
+PHA PreAmp <Sample> <AcquisitionTime>sec; <Date>.csv
+```
+Example:
 
-  ***Example:***  
-        PHA PreAmp Vase Uranium 3638sec; 14-1-2026.csv
+```
+PHA PreAmp Rocks 7200sec; 15-1-2026.csv
+```
 
-- **`.DS_Store`** – macOS system file; safe to ignore.  
-- **`plots_2/`** – Folder containing all saved plots from the analysis.
 
----
+Each CSV file contains:
 
-## Usage
+(detector settings, acquisition time, voltage, gains, etc.)
 
-1. Ensure the data file(s) are in the same folder as the scripts.  
-2. Run the script with Python 3.x:  
-   ```bash
-   python script_peak_analysis_2.py
-3. Generated plots will be saved in plots_2/ in subfolders:
+A section starting with:
 
-## Notes
+```
+Channel Data:
+Channel,Energy,Counts
+```
 
-Background spectra are automatically scaled by acquisition time before subtraction.
-Peak regions are predefined; Gaussian fits extract peak position, width, and significance.
-.DS_Store files appear on macOS but do not affect scripts or data.
+Only Channel and Counts are used in the analysis.
+
+The Energy column is ignored and also not present
+
+
+What the analysis does:
+
+For each spectrum, the scripts perform:
+
+Spectrum loading
+    Reads channel–count data from the CSV file.
+
+Background scaling and subtraction
+   Background spectra are scaled by measuring time and subtracted from sample spectra.
+
+Spectrum visualisation
+
+   Linear-scale spectrum (raw, background, and background-subtracted)
+   Log-scale spectrum (channels 0–600)
+
+Peak analysis
+
+   The best regions of interest (ROIs) are selected for each sample and its peaks using the R^2 value
+   A Gaussian function is fitted to each candidate ROI
+
+Statistical tests (gamma_curve_fit.py only)
+   For each accepted peak, the following are calculated and printed:
+
+   Net counts and background counts
+   Signal-to-background ratio (S/B)
+   Peak significance (in σ)
+   Gaussian centroid (μ), width (σ), and FWHM
+   Fit quality (R²)
