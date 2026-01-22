@@ -25,7 +25,7 @@ Two scripts are provided:
 
 CSV files follow the pattern:
 
-PHA PreAmp <Sample> <AcquisitionTime>sec; <Date>.csv
+    PHA PreAmp <Sample> <AcquisitionTime>sec; <Date>.csv
 
 Example:
 
